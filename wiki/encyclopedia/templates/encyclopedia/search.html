@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block body %}
+    <h1>Searching for "{{ string }}":</h1>
+    <ul>
+        {% for chance in chances %}
+            <li class="mb-2"><a href="{% url 'entry' chance %}">{{ chance }}</a></li>
+        {% empty %}
+            No results found
+        {% endfor %}
+    </ul>
+{% endblock %}
